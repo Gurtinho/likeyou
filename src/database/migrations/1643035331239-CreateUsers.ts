@@ -34,11 +34,13 @@ export class CreateUsers1643035331239 implements MigrationInterface {
                         name: 'updated_at',
                         type: 'timestamp',
                         default: 'now()',
-                    }
+                    },
                 ]
             })
         );
     };
 
-    public async down(queryRunner: QueryRunner): Promise<void> {};
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable('users');
+    };
 };
