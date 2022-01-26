@@ -17,6 +17,7 @@ class CreateComplimentService {
         if (user_sender === user_receiver) throw new Error('Dont send it to yourself');
         
         const userReceiverExists = await userRepositories.findOne(user_receiver);
+        
         if (!userReceiverExists) throw new Error('User receiver does not exists');
 
         const compliments = complimentRepositories.create({

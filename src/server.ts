@@ -1,15 +1,15 @@
 import express from 'express';
-import { generalError } from './middlewares/generalError';
-import { router } from './routes';
 import 'reflect-metadata';
 import 'express-async-errors';
 import './database';
+import { router } from './routes';
+import { errors } from './middlewares/errors';
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use( generalError );
 app.use( router );
+app.use( errors );
 
-app.listen(3000);
+app.listen( 3000 );
