@@ -2,8 +2,8 @@ import express from 'express';
 import 'reflect-metadata';
 import 'express-async-errors';
 import './database';
-import { router } from './routes';
-import { errors } from './middlewares/errors';
+import { router } from './routes/index';
+import { errors } from './middlewares/ensureErrors';
 
 const app = express();
 
